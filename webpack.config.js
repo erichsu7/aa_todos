@@ -21,10 +21,6 @@ module.exports = {
   devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"]
-  },
-  scripts: {
-    postinstall: "webpack",
-    webpack: "webpack --watch"
   }
 
 }
