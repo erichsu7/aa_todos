@@ -1,3 +1,3 @@
-export const fetchTodos = () => {
-  $.get("/api/todos");
-}
+export const fetchTodos = () => (
+  $.get("/api/todos")
+)
