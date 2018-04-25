@@ -5,7 +5,7 @@ import TodoForm from "./todo_form";
 
 class TodoList extends React.Component {
   componentDidMount() {
-    console.log(this.props.fetchTodos());
+    this.props.fetchTodos();
   }
 
   render() {
@@ -19,7 +19,7 @@ class TodoList extends React.Component {
               receiveTodo={this.props.receiveTodo}/>
           ))}
         </ul>
-        <TodoForm receiveTodo={this.props.receiveTodo} />
+        <TodoForm createTodo={this.props.createTodo} />
       </div>
     )
   }
