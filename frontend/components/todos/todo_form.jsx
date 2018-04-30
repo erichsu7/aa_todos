@@ -1,4 +1,5 @@
 import React from "react";
+import TodoFormErrorList from "./todo_form_error_list";
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class TodoForm extends React.Component {
     const todo = Object.assign({}, this.state, { done: false });
     this.props.createTodo(todo).then(
       () => this.setState({ title: "", body: "" })
-    );
+    )
   }
 
   render() {
@@ -46,6 +47,7 @@ class TodoForm extends React.Component {
           </label>
         </div>
         <input type="submit" value="Add todo" />
+        <TodoFormErrorList errors={this.props.errors} />
       </form>
     )
   }
