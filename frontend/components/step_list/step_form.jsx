@@ -8,7 +8,6 @@ class StepForm extends React.Component {
       title: "",
       body: ""
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,16 +21,19 @@ class StepForm extends React.Component {
       {},
       this.state,
       {
-        id: uniqueId(),
         todo_id: this.props.todoId
       }
     );
-    this.props.receiveStep(step);
-    // clear state
-    this.state = {
-      title: "",
-      body: ""
-    }
+    this.props.createStep(step).then(
+      savedStep => {
+        // clear state
+        this.state = {
+          title: "",
+          body: ""
+        }
+      }
+    );
+
   }
 
   render() {

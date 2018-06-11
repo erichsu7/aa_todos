@@ -4,6 +4,7 @@ import TodoForm from "./todo_form";
 
 class TodoList extends React.Component {
   componentDidMount() {
+    this.props.fetchSteps();
     this.props.fetchTodos();
   }
 

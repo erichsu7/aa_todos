@@ -8,13 +8,13 @@ class StepList extends React.Component {
   }
 
   render() {
-    const { todo_id, receiveStep } = this.props;
+    const { todo_id, createStep } = this.props;
     return (
       <div>
         <ul>
           {this.props.steps.map((step) => <StepListItemContainer step={step}/>)}
         </ul>
-        <StepForm todoId={todo_id} receiveStep={receiveStep} />
+        <StepForm todoId={todo_id} createStep={createStep} />
       </div>
     )
   }

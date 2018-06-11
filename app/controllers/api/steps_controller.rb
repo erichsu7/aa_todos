@@ -23,7 +23,7 @@ class Api::StepsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     step = Step.find(params[:id])
     if step.destroy
       render json: params[:id]

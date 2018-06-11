@@ -9,7 +9,7 @@ class StepListItem extends React.Component {
   toggleStepDone(event) {
     const { step } = this.props;
     const newStep = Object.assign({}, step, { done: !step.done });
-    this.props.receiveStep(newStep);
+    this.props.updateStep(newStep);
   }
 
   render() {
@@ -22,7 +22,7 @@ class StepListItem extends React.Component {
           onClick={this.toggleStepDone}/>
         <strong>{step.title}</strong>
         &nbsp;{step.body}
-        <button onClick={() => this.props.removeStep(step)}>Delete</button>
+        <button onClick={() => this.props.deleteStep(step)}>Delete</button>
       </li>
     )
   }

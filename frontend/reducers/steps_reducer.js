@@ -5,8 +5,8 @@ const stepsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_STEPS:
       // map by id
-      return actions.steps.reduce((newState, step) => (
-        return Object.assign(newState, { [step.id]: id })
+      return action.steps.reduce((newState, step) => (
+        Object.assign(newState, { [step.id]: step })
       ), {});
     case RECEIVE_STEP:
       return Object.assign({}, state, { [action.step.id]: action.step });
