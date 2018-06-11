@@ -14,9 +14,9 @@ export const receiveTodo = (todo) => ({
   todo
 });
 
-export const removeTodo = (todo) => ({
+export const removeTodo = (todoId) => ({
   type: REMOVE_TODO,
-  todo
+  todoId
 });
 
 export const fetchTodos = () => dispatch => (
@@ -29,6 +29,26 @@ export const createTodo = todo => dispatch => (
       dispatch(receiveTodo(savedTodo));
       dispatch(clearErrors());
     }, // success
+    response => dispatch(receiveErrors(response.responseJSON))
+  )
+)
+
+export const deleteTodo = todo => dispatch => (
+  TodoAPIUtil.deleteTodo(todo).then(
+    todoId => {
+      dispatch(removeTodo(todoId));
+      dispatch(clearErrors());
+    },
+    response => dispatch(receiveErrors(response.responseJSON))
+  )
+)
+
+export const updateTodo = todo => dispatch => (
+  TodoAPIUtil.updateTodo(todo).then(
+    savedTodo => {
+      dispatch(receiveTodo(savedTodo));
+      dispatch(clearErrors());
+    },
     response => dispatch(receiveErrors(response.responseJSON))
   )
 )

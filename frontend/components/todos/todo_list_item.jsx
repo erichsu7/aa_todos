@@ -10,7 +10,7 @@ class TodoListItem extends React.Component {
   toggleTodoDone() {
     const { todo } = this.props;
     const newTodo = Object.assign({}, todo, { done: !todo.done });
-    this.props.receiveTodo(newTodo);
+    this.props.updateTodo(newTodo);
   }
 
   render() {
@@ -23,7 +23,7 @@ class TodoListItem extends React.Component {
           onClick={this.toggleTodoDone}/>
         <strong>{todo.title}</strong>
         &nbsp;{todo.body}
-        <button onClick={() => this.props.removeTodo(todo)}>Delete</button>
+        <button onClick={() => this.props.deleteTodo(todo)}>Delete</button>
         <TodoDetailViewContainer todo={todo} />
       </li>
     )
